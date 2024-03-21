@@ -1,0 +1,41 @@
+project_name: "qtg"
+
+before:
+  hooks:
+    - go mod tidy
+    - go mod download
+
+builds:
+  - main: ./main.go
+    binary: qtg
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+      - freebsd
+      - openbsd
+      - netbsd
+    goarch:
+      - amd64
+      - arm64
+      - "386"
+      - arm
+    goarm:
+      - "7"
+    ignore:
+      - goos: windows
+        goarch: arm64
+      - goos: windows
+        goarm: "7"
+
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
+
+release:
+  github:
+    owner: oustn
+    name: qtg
