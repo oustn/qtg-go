@@ -1,4 +1,4 @@
-project_name: "qtg"
+project_name: "qtg-go"
 
 before:
   hooks:
@@ -38,4 +38,4 @@ archives:
 release:
   github:
     owner: oustn
-    name: qtg
+    name: qtg-go

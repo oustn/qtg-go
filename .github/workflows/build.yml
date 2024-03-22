@@ -10,6 +10,9 @@ permissions:
 
 jobs:
   build:
+    permissions:
+      id-token: write
+      contents: write
     name: GoReleaser build
     runs-on: ubuntu-latest
     steps:
