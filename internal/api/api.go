@@ -12,8 +12,8 @@ import (
 )
 
 const deviceId = "66f6e3b560ad8876e52e6e67ee535c5c"
-const UA = `QingTing-iOS/10.4.2.3 com.Qting.QTTour Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
-const key = "fpMn12&38f_2e"
+const UA = `QingTing-iOS/10.7.9.0 com.Qting.QTTour Mozilla/5.0 (iPhone; CPU iPhone OS 16_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
+const key = "99@b8#571(bb38_b"
 
 type QingTingApi struct {
 	RefreshToken string
@@ -34,6 +34,7 @@ func (api *QingTingApi) get(url string, config *fetch.Config, result interface{}
 		config.Headers = make(map[string]string)
 	}
 	config.Headers["User-Agent"] = UA
+	config.Headers["QT-App-Version"] = "10.7.9.0"
 	response, err := fetch.Get(url, config)
 
 	if err != nil {
